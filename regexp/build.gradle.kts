@@ -9,4 +9,9 @@ kotlin {
     jvmToolchain(17)
 
     jvm()
+
+    js(IR) {
+        browser()
+        binaries.library()
+    }
 }
