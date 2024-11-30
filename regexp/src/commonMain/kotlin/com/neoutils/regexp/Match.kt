@@ -7,6 +7,7 @@ data class Match(
     val groups: List<Group?>
 ) {
     data class Group(
+        val index: Int,
         val text: String,
         val range: IntRange
     )

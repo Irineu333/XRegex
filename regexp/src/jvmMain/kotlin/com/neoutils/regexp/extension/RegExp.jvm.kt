@@ -3,24 +3,30 @@ package com.neoutils.regexp.extension
 import com.neoutils.regexp.Match
 import com.neoutils.regexp.RegExp
 
-actual fun RegExp.findAll(text: String): List<Match> {
+actual fun RegExp.findAll(
+    text: String,
+    range: IntRange
+): List<Match> {
 
     val results = Regex(
         pattern = pattern
-    ).findAll(input = text)
+    ).findAll(
+        input = text.substring(range),
+    )
 
     return buildList {
-        results.forEachIndexed { index, match ->
+        results.forEachIndexed { matchIndex, match ->
             add(
                 Match(
-                    index = index,
+                    index = matchIndex,
                     text = match.value,
-                    range = match.range,
-                    groups = match.groups.map { group ->
+                    range = match.range + range,
+                    groups = match.groups.mapIndexed { groupIndex, group ->
                         group?.let {
                             Match.Group(
                                 text = it.value,
-                                range = it.range
+                                range = it.range + range,
+                                index = groupIndex
                             )
                         }
                     }
