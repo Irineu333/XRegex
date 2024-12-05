@@ -17,9 +17,9 @@ dependencyResolutionManagement {
 }
 
 include(
-    ":regexp",
+    ":xregex",
     ":example"
 )
 
-rootProject.name = "RegExpKMP"
+rootProject.name = "XRegex"
 

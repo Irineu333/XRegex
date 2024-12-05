@@ -22,7 +22,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":regexp"))
+            implementation(project(":xregex"))
         }
     }
 }

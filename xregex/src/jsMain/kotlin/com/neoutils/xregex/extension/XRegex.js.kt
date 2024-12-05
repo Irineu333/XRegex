@@ -1,14 +1,15 @@
-package com.neoutils.regexp.extension
+package com.neoutils.xregex.extension
 
-import com.neoutils.regexp.Match
-import com.neoutils.regexp.RegExp
+import com.neoutils.xregex.Match
+import com.neoutils.xregex.XRegex
+import kotlin.js.RegExp
 
-actual fun RegExp.findAll(
+actual fun XRegex.findAll(
     text: String,
     range: IntRange
 ): List<Match> {
 
-    val jsRegExp = kotlin.js.RegExp(pattern = pattern, flags = "gd")
+    val jsRegExp = RegExp(pattern = pattern, flags = "gd")
 
     val matches = text.substring(range).matchAll(jsRegExp)
 
@@ -51,7 +52,7 @@ actual fun RegExp.findAll(
     }
 }
 
-fun String.matchAll(jsRegex: kotlin.js.RegExp): List<dynamic> {
+fun String.matchAll(jsRegex: RegExp): List<dynamic> {
 
     val result = asDynamic().matchAll(jsRegex)
 

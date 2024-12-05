@@ -2,7 +2,7 @@
   <artifact type="jar" name="example-js">
     <output-path>$PROJECT_DIR$/example/build/libs</output-path>
     <root id="archive" name="example-js.jar">
-      <element id="module-output" name="RegExpKMP.example.jsMain" />
+      <element id="module-output" name="XRegex.example.jsMain" />
     </root>
   </artifact>
 </component>

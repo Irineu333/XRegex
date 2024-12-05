@@ -1,9 +1,9 @@
-package com.neoutils.regexp.extension
+package com.neoutils.xregex.extension
 
-import com.neoutils.regexp.Match
-import com.neoutils.regexp.RegExp
+import com.neoutils.xregex.Match
+import com.neoutils.xregex.XRegex
 
-actual fun RegExp.findAll(
+actual fun XRegex.findAll(
     text: String,
     range: IntRange
 ): List<Match> {

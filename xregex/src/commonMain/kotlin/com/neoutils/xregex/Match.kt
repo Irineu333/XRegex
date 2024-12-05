@@ -1,4 +1,4 @@
-package com.neoutils.regexp
+package com.neoutils.xregex
 
 data class Match(
     val text: String,

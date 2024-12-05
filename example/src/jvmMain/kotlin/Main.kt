@@ -1,6 +1,6 @@
-import com.neoutils.regexp.extension.findAll
-import com.neoutils.regexp.extension.toRegExp
+import com.neoutils.xregex.extension.findAll
+import com.neoutils.xregex.extension.toXRegex
 
 fun main() {
-    println("\\w+".toRegExp().findAll("name"))
+    println("\\w+".toXRegex().findAll("name"))
 }
