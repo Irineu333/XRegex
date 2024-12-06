@@ -1,0 +1,11 @@
+[versions]
+
+pcre4j = "0.4.3"
+
+[libraries]
+
+pcre4j-regex = { group = "org.pcre4j", name = "regex", version.ref = "pcre4j" }
+pcre4j-jna = { group = "org.pcre4j", name = "jna", version.ref = "pcre4j" }
+
+[plugins]
+
