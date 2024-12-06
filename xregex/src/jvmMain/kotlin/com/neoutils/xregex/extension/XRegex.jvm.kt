@@ -1,12 +1,12 @@
 package com.neoutils.xregex.extension
 
-import com.neoutils.xregex.Match
+import com.neoutils.xregex.XMatch
 import com.neoutils.xregex.XRegex
 
 actual fun XRegex.findAll(
     text: String,
     range: IntRange
-): List<Match> {
+): List<XMatch> {
 
     val results = Regex(
         pattern = pattern
@@ -17,16 +17,16 @@ actual fun XRegex.findAll(
     return buildList {
         results.forEachIndexed { matchIndex, match ->
             add(
-                Match(
+                XMatch(
                     index = matchIndex,
                     text = match.value,
                     range = match.range + range,
                     groups = match.groups.mapIndexed { groupIndex, group ->
                         group?.let {
-                            Match.Group(
+                            XMatch.Group(
+                                index = groupIndex,
                                 text = it.value,
-                                range = it.range + range,
-                                index = groupIndex
+                                range = it.range + range
                             )
                         }
                     }

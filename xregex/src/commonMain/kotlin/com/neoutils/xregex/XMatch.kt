@@ -1,8 +1,8 @@
 package com.neoutils.xregex
 
-data class Match(
-    val text: String,
+data class XMatch(
     val index: Int,
+    val text: String,
     val range: IntRange,
     val groups: List<Group?>
 ) {
