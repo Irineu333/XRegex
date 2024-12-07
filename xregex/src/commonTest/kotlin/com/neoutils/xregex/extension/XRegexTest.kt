@@ -77,4 +77,44 @@ class XRegexTest {
             actual
         )
     }
+
+    @Test
+    fun captureGroups() {
+
+        val expected = listOf(
+            XMatch(
+                index = 0,
+                text = "name = XRegex",
+                range = 0..12,
+                groups = listOf(
+                    XMatch.Group(
+                        index = 0,
+                        text = "name = XRegex",
+                        range = 0..12,
+                    ),
+                    XMatch.Group(
+                        index = 1,
+                        text = """name""",
+                        range = 0..3,
+                    ),
+                    XMatch.Group(
+                        index = 2,
+                        text = """XRegex""",
+                        range = 7..12,
+                    ),
+                )
+            )
+        )
+
+        val actual = XRegex(
+            pattern = "(\\w+)\\s*=\\s*(\\w+)",
+        ).findAll(
+            text = "name = XRegex"
+        )
+
+        assertEquals(
+            expected,
+            actual
+        )
+    }
 }
