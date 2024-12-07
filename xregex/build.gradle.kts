@@ -20,5 +20,9 @@ kotlin {
             implementation(libs.pcre4j.regex)
             implementation(libs.pcre4j.jna)
         }
+
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+        }
     }
 }
