@@ -18,14 +18,27 @@ class XRegexTest {
             )
         )
 
-        val actual = XRegex(
-            pattern = "\\w+"
-        ).findAll(
-            text = "XRegex"
+        val targets = listOf(
+            XRegex(
+                pattern = "\\w+"
+            ),
+            XRegex(
+                pattern = "\\w+",
+                flags = listOf(XRegex.Flag.PCRE)
+            )
         )
 
+        val actual = targets.map {
+            it.findAll(
+                text = "XRegex"
+            )
+        }
+
         assertEquals(
-            expected,
+            listOf(
+                expected,
+                expected
+            ),
             actual
         )
     }
@@ -66,14 +79,27 @@ class XRegexTest {
             )
         )
 
-        val actual = XRegex(
-            pattern = "\\w"
-        ).findAll(
-            text = "XRegex"
+        val targets = listOf(
+            XRegex(
+                pattern = "\\w"
+            ),
+            XRegex(
+                pattern = "\\w",
+                flags = listOf(XRegex.Flag.PCRE)
+            )
         )
 
+        val actual = targets.map {
+            it.findAll(
+                text = "XRegex"
+            )
+        }
+
         assertEquals(
-            expected,
+            listOf(
+                expected,
+                expected
+            ),
             actual
         )
     }
@@ -106,14 +132,27 @@ class XRegexTest {
             )
         )
 
-        val actual = XRegex(
-            pattern = "(\\w+)\\s*=\\s*(\\w+)",
-        ).findAll(
-            text = "name = XRegex"
+        val targets = listOf(
+            XRegex(
+                pattern = "(\\w+)\\s*=\\s*(\\w+)",
+            ),
+            XRegex(
+                pattern = "(\\w+)\\s*=\\s*(\\w+)",
+                flags = listOf(XRegex.Flag.PCRE)
+            )
         )
 
+        val actual = targets.map {
+            it.findAll(
+                text = "name = XRegex"
+            )
+        }
+
         assertEquals(
-            expected,
+            listOf(
+                expected,
+                expected
+            ),
             actual
         )
     }
