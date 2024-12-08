@@ -7,19 +7,6 @@ kotlin {
 
     jvm()
 
-    js(IR) {
-
-        moduleName = "app"
-
-        browser {
-            commonWebpackConfig {
-                outputFileName = "app.js"
-            }
-        }
-
-        binaries.executable()
-    }
-
     sourceSets {
         commonMain.dependencies {
             implementation(project(":xregex"))
