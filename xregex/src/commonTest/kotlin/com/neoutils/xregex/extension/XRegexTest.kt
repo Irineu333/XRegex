@@ -120,12 +120,12 @@ class XRegexTest {
                     ),
                     XMatch.Group(
                         index = 1,
-                        text = """name""",
+                        text = "name",
                         range = 0..3,
                     ),
                     XMatch.Group(
                         index = 2,
-                        text = """XRegex""",
+                        text = "XRegex",
                         range = 7..12,
                     ),
                 )
@@ -145,6 +145,42 @@ class XRegexTest {
         val actual = targets.map {
             it.findAll(
                 text = "name = XRegex"
+            )
+        }
+
+        assertEquals(
+            listOf(
+                expected,
+                expected
+            ),
+            actual
+        )
+    }
+
+    @Test
+    fun specifyRange() {
+
+        val expected = listOf(
+            XMatch(
+                index = 0,
+                text = "XRegex",
+                range = 4..9
+            )
+        )
+
+        val targets = ".+".let {
+            listOf(
+                it.toXRegex(),
+                it.toXRegex(
+                    flags = listOf(XRegex.Flag.PCRE)
+                )
+            )
+        }
+
+        val actual = targets.map {
+            it.findAll(
+                text = "The XRegex is multiplatform",
+                range = 4 .. 9
             )
         }
 
