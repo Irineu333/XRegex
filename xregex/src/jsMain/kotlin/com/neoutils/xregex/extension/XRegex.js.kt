@@ -6,7 +6,7 @@ import com.neoutils.xregex.XRegex
 import com.neoutils.xregex.flavor.JavaScriptFlavor
 
 actual fun XRegex.findAll(
-    text: String,
+    text: CharSequence,
     range: IntRange
 ): List<XMatch> {
     return when (flavors.js) {

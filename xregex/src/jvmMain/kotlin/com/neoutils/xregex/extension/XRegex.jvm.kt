@@ -6,7 +6,7 @@ import com.neoutils.xregex.flavor.JavaFlavor
 import com.neoutils.xregex.flavor.PcreFlavor
 
 actual fun XRegex.findAll(
-    text: String,
+    text: CharSequence,
     range: IntRange
 ) = when (flavors.jvm) {
     Flavor.JVM.Native -> JavaFlavor.findAll(regex = this, text, range)

@@ -3,7 +3,6 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain(jdkVersion = 21)
 
     jvm()
 
@@ -15,8 +14,8 @@ kotlin {
 
     sourceSets {
         jvmMain.dependencies {
-            implementation(libs.pcre4j.regex)
-            implementation(libs.pcre4j.jna)
+            api(libs.pcre4j.regex)
+            api(libs.pcre4j.jna)
         }
 
         commonTest.dependencies {

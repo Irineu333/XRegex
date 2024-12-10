@@ -10,7 +10,7 @@ import kotlin.js.RegExp
 object JavaScriptFlavor : XFlavor {
     override fun findAll(
         regex: XRegex,
-        text: String,
+        text: CharSequence,
         range: IntRange
     ): List<XMatch> {
 

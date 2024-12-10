@@ -10,6 +10,10 @@ plugins {
 group = config.group
 version = config.version
 
+kotlin {
+    jvmToolchain(jdkVersion = 21)
+}
+
 mavenPublishing {
 
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)

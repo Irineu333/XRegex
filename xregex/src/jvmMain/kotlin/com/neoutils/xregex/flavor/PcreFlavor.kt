@@ -16,7 +16,7 @@ object PcreFlavor : XFlavor {
 
     override fun findAll(
         regex: XRegex,
-        text: String,
+        text: CharSequence,
         range: IntRange
     ): List<XMatch> {
 

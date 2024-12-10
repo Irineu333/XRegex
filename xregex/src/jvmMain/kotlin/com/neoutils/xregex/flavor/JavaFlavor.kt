@@ -8,7 +8,7 @@ import com.neoutils.xregex.extension.plus
 object JavaFlavor : XFlavor {
     override fun findAll(
         regex: XRegex,
-        text: String,
+        text: CharSequence,
         range: IntRange
     ): List<XMatch> {
         val results = Regex(
