@@ -1,8 +1,14 @@
 [versions]
 
+kotlin = "2.0.21"
 pcre4j = "0.4.3"
+vanniktech-mavenPlublish = "0.30.0"
 
 [libraries]
+
+# plugins
+plugin-kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "vanniktech-mavenPlublish" }
 
 # kmp
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test" }
@@ -12,4 +18,8 @@ pcre4j-regex = { group = "org.pcre4j", name = "regex", version.ref = "pcre4j" }
 pcre4j-jna = { group = "org.pcre4j", name = "jna", version.ref = "pcre4j" }
 
 [plugins]
+
+# kmp
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech-mavenPlublish" }
 

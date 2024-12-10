@@ -1,9 +1,6 @@
 plugins {
-    kotlin("multiplatform") version "2.0.20"
+    id("com.neoutils.xregex")
 }
-
-group = "com.neoutils.xregex"
-version = "1.0-SNAPSHOT"
 
 kotlin {
     jvmToolchain(jdkVersion = 21)
