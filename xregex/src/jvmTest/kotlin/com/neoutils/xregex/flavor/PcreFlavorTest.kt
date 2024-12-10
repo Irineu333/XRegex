@@ -1,5 +1,6 @@
 package com.neoutils.xregex.flavor
 
+import com.neoutils.xregex.Flavor
 import com.neoutils.xregex.XMatch
 import com.neoutils.xregex.XRegex
 import com.neoutils.xregex.extension.findAll
@@ -37,9 +38,10 @@ class PcreFlavorTest {
         )
 
         val actual = XRegex(
-            pattern = "(\\((\\w+|(?1))*\\))",
-            flags = listOf(XRegex.Flag.PCRE)
-        ).findAll(
+            pattern = "(\\((\\w+|(?1))*\\))"
+        ).apply {
+            flavors.jvm = Flavor.JVM.PCRE
+        }.findAll(
             text = "((XRegex))"
         )
 

@@ -1,5 +1,6 @@
 package com.neoutils.xregex.extension
 
+import com.neoutils.xregex.Flavor
 import com.neoutils.xregex.XMatch
 import com.neoutils.xregex.XRegex
 import kotlin.test.Test
@@ -24,8 +25,9 @@ class XRegexTest {
             ),
             XRegex(
                 pattern = "\\w+",
-                flags = listOf(XRegex.Flag.PCRE)
-            )
+            ).apply {
+                flavors.jvm = Flavor.JVM.PCRE
+            }
         )
 
         val actual = targets.map {
@@ -84,9 +86,10 @@ class XRegexTest {
                 pattern = "\\w"
             ),
             XRegex(
-                pattern = "\\w",
-                flags = listOf(XRegex.Flag.PCRE)
-            )
+                pattern = "\\w"
+            ).apply {
+                flavors.jvm = Flavor.JVM.PCRE
+            }
         )
 
         val actual = targets.map {
@@ -137,9 +140,10 @@ class XRegexTest {
                 pattern = "(\\w+)\\s*=\\s*(\\w+)",
             ),
             XRegex(
-                pattern = "(\\w+)\\s*=\\s*(\\w+)",
-                flags = listOf(XRegex.Flag.PCRE)
-            )
+                pattern = "(\\w+)\\s*=\\s*(\\w+)"
+            ).apply {
+                flavors.jvm = Flavor.JVM.PCRE
+            }
         )
 
         val actual = targets.map {
@@ -171,16 +175,16 @@ class XRegexTest {
         val targets = ".+".let {
             listOf(
                 it.toXRegex(),
-                it.toXRegex(
-                    flags = listOf(XRegex.Flag.PCRE)
-                )
+                it.toXRegex().apply {
+                    flavors.jvm = Flavor.JVM.PCRE
+                }
             )
         }
 
         val actual = targets.map {
             it.findAll(
                 text = "The XRegex is multiplatform",
-                range = 4 .. 9
+                range = 4..9
             )
         }
 

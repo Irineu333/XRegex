@@ -12,7 +12,17 @@ object JavaFlavor : XFlavor {
         range: IntRange
     ): List<XMatch> {
         val results = Regex(
-            pattern = regex.pattern
+            pattern = regex.pattern,
+            options = regex.flags.mapNotNull {
+                when (it) {
+                    "l" -> RegexOption.LITERAL
+                    "i" -> RegexOption.IGNORE_CASE
+                    "m" -> RegexOption.MULTILINE
+                    "c" -> RegexOption.COMMENTS
+                    "s" -> RegexOption.DOT_MATCHES_ALL
+                    else -> null
+                }
+            }.toSet()
         ).findAll(
             input = text.substring(range),
         )

@@ -16,7 +16,7 @@ object JavaScriptFlavor : XFlavor {
 
         val jsRegExp = RegExp(
             pattern = regex.pattern,
-            flags = "gd"
+            flags = "gd" + regex.flags.joinToString(separator = "")
         )
 
         return text
