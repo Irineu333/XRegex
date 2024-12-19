@@ -39,14 +39,19 @@ object PcreFlavor : XFlavor {
                             endInclusive = matcher.groupCount()
                         ).map { groupIndex ->
 
-                            val groupStart = matcher.start(groupIndex)
-                            val groupEnd = matcher.end(groupIndex)
+                            matcher.group(groupIndex)?.let { groupText ->
 
-                            XMatch.Group(
-                                index = groupIndex,
-                                text = matcher.group(groupIndex),
-                                range = (groupStart until groupEnd) + range
-                            )
+                                val groupStart = matcher.start(groupIndex)
+                                val groupEnd = matcher.end(groupIndex)
+
+                                val groupRange = groupStart until groupEnd
+
+                                XMatch.Group(
+                                    index = groupIndex,
+                                    text = groupText,
+                                    range = groupRange + range
+                                )
+                            }
                         }
                     )
                 )
