@@ -7,7 +7,7 @@ val config = Config(
         major = 1,
         minor = 0,
         patch = 0,
-        release = Config.Release.Snapshot(number = 3)
+        release = Config.Release.Snapshot(number = 4)
     ),
     group = "com.neoutils.xregex",
 )

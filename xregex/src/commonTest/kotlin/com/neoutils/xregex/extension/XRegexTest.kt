@@ -174,8 +174,8 @@ class XRegexTest {
 
         val targets = ".+".let {
             listOf(
-                it.toXRegex(),
-                it.toXRegex().apply {
+                it.xRegex(),
+                it.xRegex().apply {
                     flavors.jvm = Flavor.JVM.PCRE
                 }
             )

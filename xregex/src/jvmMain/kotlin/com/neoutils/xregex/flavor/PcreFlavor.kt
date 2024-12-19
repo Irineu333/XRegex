@@ -21,7 +21,7 @@ object PcreFlavor : XFlavor {
     ): List<XMatch> {
 
         val matcher = Pattern
-            .compile(regex.pattern)
+            .compile(regex.pattern, getFlags(regex.flags))
             .matcher(text.substring(range))
 
         return buildList {
@@ -59,5 +59,22 @@ object PcreFlavor : XFlavor {
                 index++
             }
         }
+    }
+
+    private fun getFlags(options: List<String>): Int {
+
+        var flags = 0
+
+        for (option in options) {
+            flags = flags or when (option) {
+                "i" -> Pattern.CASE_INSENSITIVE
+                "m" -> Pattern.MULTILINE
+                "l" -> Pattern.LITERAL
+                "s" -> Pattern.DOTALL
+                else -> 0
+            }
+        }
+
+        return flags
     }
 }
